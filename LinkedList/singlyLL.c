@@ -14,8 +14,9 @@ int insertatBegin(int val)
     head=newnode;
 }
 
-void display(struct node *temp)
+void display()
 {
+    struct node *temp;
     temp=head;
     while(temp!=NULL)
     {
@@ -26,12 +27,20 @@ void display(struct node *temp)
 
 int main()
 {
-    int val;
-
-    printf("Insert at beginning \n enter value to insert at beginning:");
+    int val,n;
+    printf("enter n :");
+    scanf("%d",&n);
+    printf("enter nodes:");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&val);
+        insertatBegin(val);
+    }
+    display();
+    printf("\nInsert at beginning \nenter value to insert at beginning:");
     scanf("%d",&val);
     insertatBegin(val);
     printf("value inserted\n");
-    display(head);
+    display();
     return 0;
 }
