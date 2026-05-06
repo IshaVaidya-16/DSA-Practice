@@ -1,5 +1,3 @@
-a=[11, 1, 13, 21, 3, 7]
-b=[11, 3, 8, 1]
 
 def subarray(a,b):
     a1=set(a)
@@ -11,6 +9,8 @@ def subarray(a,b):
     return True
 
 if __name__=='__main__':
+    a=list(map(int,input("enter a:").split()))
+    b=list(map(int,input("enter b as subset:").split()))
     if subarray(a,b):
         print(True)
     else:
