@@ -98,7 +98,7 @@ int main()
             inorder(root);
             break;
             
-             case 2:
+            case 2:
             printf("preorder series: ");
             preorder(root);
             break;
