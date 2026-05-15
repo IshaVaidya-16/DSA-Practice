@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct node 
+struct node
 {
     int data;
     struct node *left;
@@ -51,7 +51,6 @@ else{
     return 1+ rightHeight;
 }
 }
-
 
 int isBalanced(struct node *newnode)
 {
