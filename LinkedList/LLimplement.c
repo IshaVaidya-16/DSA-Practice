@@ -102,6 +102,72 @@ struct node *reverse()
     return head;
 }
 
+void deleteBegin()
+{
+    if(head==NULL)
+    {
+        printf("list is empty");
+        return;
+    }
+    struct node *temp=head;
+    head=head->next;
+    free(temp);
+    printf("Value deleted from beginning\n");
+}
+
+void deleteEnd()
+{
+    if(head==NULL)
+    {
+        printf("list is empty");
+        return;
+    }
+    if(head->next==NULL)
+    {
+        free(head);
+        head=NULL;
+        return;
+    }
+    struct node *temp=head;
+    while(temp->next->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    free(temp->next);
+    temp->next=NULL;
+    printf("Value deleted from end\n");
+}
+
+
+void deleteByIndex(int indexVal)
+{
+     struct node *temp=head;
+    if(head==NULL)
+    {
+        printf("list is empty");
+        return; 
+    }
+    if(indexVal==1)
+    {
+
+        head=head->next;
+        free(temp);
+        printf("Value deleted from index %d\n", indexVal);
+        return;
+    }
+    struct node *prev=NULL;
+    for(int i=1;i<indexVal;i++)
+    {
+        prev=temp;
+        temp=temp->next;
+    }
+
+    prev->next=temp->next;
+    free(temp);
+    printf("Value deleted from index %d\n", indexVal);
+
+}
+
 void display()
 {
     struct node *temp = head;
@@ -129,8 +195,11 @@ int main()
         printf("\n3) Insert position");
         printf("\n4) Search");
         printf("\n5) Reverse");
-        printf("\n6) Display");
-        printf("\n7) Exit");
+        printf("\n6) Delete beginning");
+        printf("\n7) Delete end");
+        printf("\n8) Delete by index");
+        printf("\n9) Display");
+        printf("\n10) Exit");
 
         printf("\nEnter choice: ");
         scanf("%d", &ch);
@@ -169,17 +238,31 @@ int main()
                 break;
 
             case 6:
-                display();
+                deleteBegin();
                 break;
 
             case 7:
+                deleteEnd();
+                break;
+
+            case 8:
+                printf("Enter index: ");
+                scanf("%d", &pos);
+                deleteByIndex(pos);
+                break;
+
+            case 9:
+                display();
+                break;
+            case 10:
                 printf("Exiting...\n");
                 break;
 
             default:
                 printf("Wrong choice\n");
         }
+    }
 
-    } while(ch != 7);
+    while(ch != 9);
     return 0;
 }
