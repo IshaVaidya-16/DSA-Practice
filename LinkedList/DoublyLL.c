@@ -180,8 +180,7 @@ void display()
 
 int main()
 {
-    int val,pos,
-    ch;
+    int val,pos,ch;
     printf("Doubly Linked List");
     printf("\n-----------------------");
     do
@@ -228,7 +227,7 @@ int main()
         break;
         
         case 6:
-        int pos;
+        
         printf("enter position:");
         scanf("%d",&pos);
         deletePosition(pos);
